@@ -1,0 +1,48 @@
+[package]
+name = "winmm"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+lazy_static = "1.5"
+winapi = { version = "0.3.9", features = ["libloaderapi", "minwindef", "winuser", "processthreadsapi", "minwinbase", "mmeapi", "consoleapi", "synchapi", "handleapi", "winbase", "jobapi2", "dwmapi", "memoryapi", "processenv", "tlhelp32", "timeapi", "mmsystem"] }
+octocrab = "0.48"
+tokio = { version = "1", features = ["full"] }
+reqwest = { version = "0.12", features = ["blocking", "json"] }
+dirs = "6.0.0"
+zip = "6.0"
+fs_extra = "1.3"
+eframe = { version = "0.33", features = ["glow"] }
+egui = "0.33"
+winit = "0.30"
+image = "0.25"
+blake3 = "1.8"
+ttf-parser = "0.25"
+retour = { git = "https://github.com/Hpmason/retour-rs.git" }
+once_cell = "1.21"
+log = "0.4"
+simplelog = "0.12"
+chrono = "0.4"
+backtrace = "0.3"
+widestring = "1.2"
+raw-window-handle = "0.6"
+egui_overlay = { git = "https://github.com/blockgameentity/egui_overlay.git", features = ["glfw_default"] }
+toml = "0.9"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+json5 = "1.0"
+aobscan = "0.3.0"
+pelite = "0.10.0"
+num_cpus = "1.17"
+dll-syringe = "0.17.1"
+sysinfo = "0.37"
+
+[profile.release]
+strip = true
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
